@@ -26,5 +26,5 @@ jobs:
       uses: ortega2247/pypi_upload_action@master
       with:
         user: __token__
-        password: ${{ secrets.test_pypi_password }}
+        password: ${{ secrets.pypi_password }}
         repository_url: https://test.pypi.org/legacy/
