@@ -1,0 +1,30 @@
+name: Upload Python Package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 4
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        python-version: [3.6]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+        python setup.py sdist bdist_wheel
+    - name: Build and publish
+      uses: ortega2247/pypi_upload_action@master
+      with:
+        user: __token__
+        password: ${{ secrets.test_pypi_password }}
+        repository_url: https://test.pypi.org/legacy/
