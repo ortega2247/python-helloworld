@@ -13,7 +13,7 @@ before_install:
 install:
 - pip install .
 script:
-- pytest
+- nose
 deploy:
   condition: env(PYVER) = 2.7
   provider: pypi
