@@ -9,8 +9,11 @@ before_install:
 - bash miniconda.sh -b -p $HOME/miniconda
 - export PATH="/home/travis/miniconda/bin:$PATH"
 - conda update --yes conda
+- conda install -c --yes conda-forge pytest
 install:
 - pip install .
+script:
+- pytest
 deploy:
   condition: env(PYVER) = 2.7
   provider: pypi
