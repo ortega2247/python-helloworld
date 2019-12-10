@@ -15,9 +15,10 @@ install:
 script:
 - nosetests
 deploy:
-  condition: env(PYVER) = 2.7
   provider: pypi
   distributions: sdist bdist_wheel
   username: ortega2247
   password:
     secure: Rj48Jc06nnDnJwLwh0zNEsthzHc+6IQSxELn4itcPBj+OwpVqOCUWq/q5ChxYNbgPcv/OKtvOotW+hXGDYWaUmj0nThIdFOcReL1mIm+DjVHEwithmMquY2BT/Agy6rvUnCpbxwbM7tYE+Lh6JBbsKwMo4gZdlMwQADZYw/t2uQpcni1LnqDiNsW0t8YC4LIDL1Q52CXLmUuOwBhepypbW0BN7+klrO/+POyn3+taJe22yOHTZso4xynj0oUNn87hNVX58UnSILF5RzvfqSv8hzoWQrjCUfg1wmZX+NSV3+ZkUZG1fd2mm6GnuqrdZdD/YlsUViDGL3EG/dg8K7Vz5SrcbTs11EY89FMCYVh3RULRAPuizTlgGKOGue16MM5xGC35jX7Fz6erc9HVsL1AGrQTZO3CZX9tgyf9xm5FiD0dicW1UuQW6Z+/Lc4lFZbnXKzQi2xdEBGSZV1ZFwaoMKq/uBlBs877GHF4ENl22dCT++wByroyxQxBVXWVK6OyC4WQueZOIBD2Cxnqkkf5AY9Y93Xb4Hf7jE8UuGgxwRL2i+KfoQxqLTf+Vvk7xiydI+KPTVsfbxa/jBSxijqVm2Kf+7rywSPIsbW9jjbEt4t72OzYaI1tMdHbBVTLPp9tmF4e4Uwk1uBimsA2zufRXHr6cxkIEHOG3CdmAwWH0g=
+  on:
+    condition: env(PYVER) = 2.7
