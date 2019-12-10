@@ -22,9 +22,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
         python setup.py sdist bdist_wheel
-    - name: Build and publish
-      uses: ortega2247/pypi_upload_action@master
-      with:
-        user: __token__
-        password: ${{ secrets.pypi_password }}
-        repository_url: https://test.pypi.org/legacy/
+
